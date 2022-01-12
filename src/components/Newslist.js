@@ -6,7 +6,7 @@ export default function Newslist(props) {
   const { allArticles } = props
   const displayedArticles = allArticles.filter(ele => ele.multimedia).slice(0, 20)
   const cards = displayedArticles.map(article => (
-    <Col sm={12} md={6} lg={4} xl={3} key={uuidv4()}>
+    <Col key={uuidv4()} className="mt-3">
       <NewsCard
         title={article.title}
         abstract={article.abstract}
@@ -19,7 +19,9 @@ export default function Newslist(props) {
 
   return (
     <Container fluid>
-      <Row>{cards}</Row>
+      <Row sm={{ cols: 1 }} md={{ cols: 2 }} lg={{ cols: 3 }} xl={{ cols: 4 }} className="no-gutters">
+        {cards}
+      </Row>
     </Container>
   )
 }
