@@ -10,7 +10,10 @@ function App() {
 
   useEffect(() => {
     getArticles("home")
-      .then(data => setArticles([...data.results]))
+      .then(data => {
+        setArticles([...data.results])
+        console.log(data.results)
+      })
       .catch(error => setErrorMsg(error))
   }, [])
 
