@@ -2,6 +2,7 @@ import "../styles/App.css"
 import getArticles from "./apiCalls"
 import { useState, useEffect } from "react"
 import Header from "./Header"
+import Newslist from "./Newslist"
 
 function App() {
   const [articles, setArticles] = useState([])
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Newslist allArticles={articles} />
     </div>
   )
 }
