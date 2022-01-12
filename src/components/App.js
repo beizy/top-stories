@@ -1,6 +1,7 @@
-import "./App.css"
+import "../styles/App.css"
 import getArticles from "./apiCalls"
 import { useState, useEffect } from "react"
+import Header from "./Header"
 
 function App() {
   const [articles, setArticles] = useState([])
@@ -12,7 +13,11 @@ function App() {
       .catch(error => setErrorMsg(error))
   }, [])
 
-  return <div className="App">Hello world</div>
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  )
 }
 
 export default App
