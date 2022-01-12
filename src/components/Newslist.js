@@ -13,6 +13,7 @@ export default function Newslist(props) {
         section={article.section}
         imgUrl={article.multimedia[0].url}
         date={article.published_date.slice(0, 10)}
+        url={article.url}
       />
     </Col>
   ))

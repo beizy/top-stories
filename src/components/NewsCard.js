@@ -1,8 +1,12 @@
-import React from "react"
-import { Card, Button } from "react-bootstrap"
+import { useState } from "react"
+import { Card, Button, Modal } from "react-bootstrap"
 
 export default function NewsCard(props) {
-  const { imgUrl, title, abstract, section, date } = props
+  const { imgUrl, title, abstract, section, date, url } = props
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
     <Card style={{ width: "16rem", height: "25rem" }}>
       <Card.Img
@@ -14,7 +18,6 @@ export default function NewsCard(props) {
         }}
       />
       <Card.Text
-        // className="align-items-start"
         style={{
           marginTop: "-1.1rem",
           color: "white",
@@ -34,7 +37,7 @@ export default function NewsCard(props) {
           {title}
         </Card.Title>
 
-        <Button variant="primary" size="sm">
+        <Button variant="primary" size="sm" onClick={handleShow}>
           Detail
         </Button>
       </Card.Body>
@@ -48,6 +51,20 @@ export default function NewsCard(props) {
       >
         Published on:{date}
       </Card.Footer>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{abstract}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" href={url} target="_blank">
+            Read Full Article
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Card>
   )
 }
