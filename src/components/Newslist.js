@@ -18,7 +18,7 @@ export default function Newslist(props) {
   ))
 
   return (
-    <Container fluid>
+    <Container>
       <Row sm={{ cols: 1 }} md={{ cols: 2 }} lg={{ cols: 3 }} xl={{ cols: 4 }} className="no-gutters">
         {cards}
       </Row>

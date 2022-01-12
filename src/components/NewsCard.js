@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap"
 export default function NewsCard(props) {
   const { imgUrl, title, abstract, section, date } = props
   return (
-    <Card style={{ width: "18rem", height: "25rem" }}>
+    <Card style={{ width: "16rem", height: "25rem" }}>
       <Card.Img
         variant="top"
         src={imgUrl}
@@ -13,7 +13,19 @@ export default function NewsCard(props) {
           height: "50%",
         }}
       />
-      <Card.Body className="justify-content-around">
+      <Card.Text
+        // className="align-items-start"
+        style={{
+          marginTop: "-1.1rem",
+          color: "white",
+          background: "rgba(0,0,0,0.2)",
+          fontSize: "0.7rem",
+          textAlign: "start",
+        }}
+      >
+        Section:{section.toUpperCase()}
+      </Card.Text>
+      <Card.Body className="d-flex flex-column justify-content-between align-items-center">
         <Card.Title
           style={{
             fontSize: "1rem",
@@ -21,15 +33,10 @@ export default function NewsCard(props) {
         >
           {title}
         </Card.Title>
-        {/* <Card.Text
-          style={{
-            fontSize: "0.9rem",
-          }}
-        >
-          {abstract}
-        </Card.Text> */}
-        <Card.Text>Section:{section.toUpperCase()}</Card.Text>
-        <Button variant="primary">Detail</Button>
+
+        <Button variant="primary" size="sm">
+          Detail
+        </Button>
       </Card.Body>
       <Card.Footer
         style={{
