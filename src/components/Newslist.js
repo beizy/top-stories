@@ -12,8 +12,10 @@ export default function Newslist(props) {
         abstract={article.abstract}
         section={article.section}
         imgUrl={article.multimedia[0].url}
-        date={article.published_date.slice(0, 10)}
+        pdate={article.published_date.slice(0, 10)}
+        udate={article.updated_date.slice(0, 10)}
         url={article.url}
+        byline={article.byline}
       />
     </Col>
   ))

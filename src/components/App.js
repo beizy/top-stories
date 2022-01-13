@@ -1,4 +1,4 @@
-import "../styles/App.css"
+import "../styles/App.scss"
 import getArticles from "./apiCalls"
 import { useState, useEffect } from "react"
 import Header from "./Header"
