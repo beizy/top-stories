@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap"
+import SectionSelector from "./SectionSelector"
 
 export default function Header() {
   return (

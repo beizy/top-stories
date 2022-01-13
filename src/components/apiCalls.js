@@ -1,7 +1,13 @@
 const getArticles = section => {
-  return fetch(
-    `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=tCrSEWLbGoY4Enmu3N67UIosvhfZKOkV`
-  ).then(res => checkResponse(res))
+  if (!section) {
+    return fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=tCrSEWLbGoY4Enmu3N67UIosvhfZKOkV`).then(
+      res => checkResponse(res)
+    )
+  } else {
+    return fetch(
+      `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=tCrSEWLbGoY4Enmu3N67UIosvhfZKOkV`
+    ).then(res => checkResponse(res))
+  }
 }
 
 const checkResponse = res => {
