@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Card, Button, Modal } from "react-bootstrap"
+import "../styles/App.scss"
 
 export default function NewsCard(props) {
   const { imgUrl, title, abstract, section, pdate, udate, url, byline } = props
@@ -44,15 +45,29 @@ export default function NewsCard(props) {
 
       <Modal show={show} onHide={handleClose} fullscreen="md-down">
         <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
+          <Modal.Title>
+            {title}
+            <p
+              style={{
+                margin: "0",
+                fontSize: "0.7rem",
+                color: "#757e85",
+              }}
+            >
+              {byline}
+            </p>
+            <p
+              style={{
+                margin: "0",
+                fontSize: "0.7rem",
+                color: "#757e85",
+              }}
+            >
+              Published at:{pdate}; Updated at: {udate}
+            </p>
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <p>{byline}</p>
-          <p>
-            Published at:{pdate}; Updated at: {udate}
-          </p>
-          {abstract}
-        </Modal.Body>
+        <Modal.Body>{abstract}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
