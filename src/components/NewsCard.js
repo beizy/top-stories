@@ -1,10 +1,15 @@
-import React from "react"
-import { Card, Button } from "react-bootstrap"
+import { useState } from "react"
+import { Card, Button, Modal } from "react-bootstrap"
+import "../styles/App.scss"
 
 export default function NewsCard(props) {
-  const { imgUrl, title, abstract, section, date } = props
+  const { imgUrl, title, abstract, section, pdate, udate, url, byline } = props
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
-    <Card style={{ width: "16rem", height: "25rem" }}>
+    <Card style={{ width: "16rem", height: "23rem" }}>
       <Card.Img
         variant="top"
         src={imgUrl}
@@ -14,7 +19,6 @@ export default function NewsCard(props) {
         }}
       />
       <Card.Text
-        // className="align-items-start"
         style={{
           marginTop: "-1.1rem",
           color: "white",
@@ -34,20 +38,45 @@ export default function NewsCard(props) {
           {title}
         </Card.Title>
 
-        <Button variant="primary" size="sm">
+        <Button variant="primary" size="sm" onClick={handleShow}>
           Detail
         </Button>
       </Card.Body>
-      <Card.Footer
-        style={{
-          height: "1.5rem",
-          fontSize: "0.7rem",
-          fontColor: "#757E85",
-          padding: "2px 0",
-        }}
-      >
-        Published on:{date}
-      </Card.Footer>
+
+      <Modal show={show} onHide={handleClose} fullscreen="md-down">
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {title}
+            <p
+              style={{
+                margin: "0",
+                fontSize: "0.7rem",
+                color: "#757e85",
+              }}
+            >
+              {byline}
+            </p>
+            <p
+              style={{
+                margin: "0",
+                fontSize: "0.7rem",
+                color: "#757e85",
+              }}
+            >
+              Published at:{pdate}; Updated at: {udate}
+            </p>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{abstract}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" href={url} target="_blank">
+            Read Full Article
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Card>
   )
 }
