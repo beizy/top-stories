@@ -12,10 +12,12 @@ This app let users take a brief look at most popular news articles from New York
 
 ## Screenshots
 
-#### Log in page
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/73845209/135175701-f80177e9-8c28-4949-9a12-f39e7634b404.gif)
-#### Dashboard
-![Screen Shot 2021-09-28 at 6 17 11 PM](https://user-images.githubusercontent.com/73845209/135173428-8dc830cd-abd3-4d53-a107-4adce5879a5b.png)
+#### Homepage view
+![Screen Shot 2022-01-14 at 1 53 40 PM](https://user-images.githubusercontent.com/73845209/149569794-e93677b4-f356-46d9-913d-e176b6368a63.png)
+
+#### Detail view
+![Screen Shot 2022-01-14 at 1 54 01 PM](https://user-images.githubusercontent.com/73845209/149569816-ea9b2027-e4dd-43e6-a870-43aa35ded332.png)
+
 
 
 ## Technology
